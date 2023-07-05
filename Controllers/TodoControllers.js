@@ -1,8 +1,8 @@
 const Todo = require("../Modules/Todo");
 
 const getAllTodo = async (req, res) => {
-  var Todo = await Todo.find();
-  res.send(Todo);
+  var todos = await Todo.find();
+  res.send(todos);
 };
 
 var postOneTodo = async (req, res) => {
@@ -20,8 +20,8 @@ var updateTodo = async (req, res) => {
 };
 
 const getAllUSerTodo=async(req,res)=>{
-    var Todo=await Todo.find({userId :req.params.userId});
-    res.send(Todo);
+    var usertodos=await Todo.find({userId :req.params.userId});
+    res.send(usertodos);
 }
 
 
