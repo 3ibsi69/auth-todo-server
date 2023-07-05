@@ -6,6 +6,7 @@ const signup = async (req, res) => {
   var checkUser = await User.findOne({ email: req.body.email });
   if (checkUser) {
     res.send({ msg: "email already exist" });
+    return
   }
   bcrypt.genSalt(10, function (err, salt) {
     bcrypt.hash(req.body.password, salt, async (err, hash) => {
