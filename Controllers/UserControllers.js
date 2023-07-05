@@ -44,18 +44,19 @@ const verify = async (req, res) => {
   try {
     var payload = jwt.verify(req.body.token, "c21");
     if (payload) {
-      var user = await user.findOne({ _id: payload.id });
+      var user = await User.findOne({ _id: payload.id });
       if (user) {
         var token = jwt.sign({ id: user._id }, "c21");
         res.send({ user });
       } else {
-        res.send("invalid token");
+        res.send("invalid token 1");
       }
     } else {
-      res.send("invalid token");
+      res.send("invalid token 2 ");
     }
   } catch (err) {
-    res.send("invalid token");
+    console.log(err);
+    res.send("invalid token 3");
   }
 };
 
