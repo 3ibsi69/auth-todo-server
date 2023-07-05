@@ -1,12 +1,8 @@
 const Todo = require("../Modules/Todo");
+const Todo = require("../Modules/Todo");
 
 const getAllTodo = async (req, res) => {
   var Todo = await Todo.find();
-  res.send(Todo);
-};
-
-var getOneTodo = async (req, res) => {
-  var Todo = await Todo.findOne({ _id: req.params._id });
   res.send(Todo);
 };
 
@@ -24,10 +20,17 @@ var updateTodo = async (req, res) => {
   res.send({ msg: "updated" });
 };
 
+const getAllUSerTodo=async(req,res)=>{
+    var Todo=await Todo.find({userId :req.params.userId});
+    res.send(Todo);
+}
+
+
+
 module.exports = {
   getAllTodo,
-  getOneTodo,
   postOneTodo,
   deleteTodo,
   updateTodo,
+  getAllUSerTodo,
 };
