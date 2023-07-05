@@ -1,5 +1,4 @@
 const Todo = require("../Modules/Todo");
-const Todo = require("../Modules/Todo");
 
 const getAllTodo = async (req, res) => {
   var Todo = await Todo.find();
