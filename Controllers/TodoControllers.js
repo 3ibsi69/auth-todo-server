@@ -11,19 +11,22 @@ var postOneTodo = async (req, res) => {
 };
 
 var deleteTodo = async (req, res) => {
-  await Todo.deleteOne({ _id: req.params._id });
+  await Todo.deleteOne({ _id: req.params.id });
   res.send({ msg: "deleted" });
 };
 var updateTodo = async (req, res) => {
-  await Todo.findByIdAndUpdate({ _id: req.params._id }, req.body);
+  await Todo.updateOne({ _id: req.params.id }, req.body );
   res.send({ msg: "updated" });
 };
-
 const getAllUSerTodo=async(req,res)=>{
     var usertodos=await Todo.find({userId :req.params.userId});
     res.send(usertodos);
 }
 
+const deletAllTodo=async(req,res)=>{
+    await Todo.deleteMany();
+    res.send({msg:"deleted all"});
+}
 
 
 module.exports = {
@@ -32,4 +35,5 @@ module.exports = {
   deleteTodo,
   updateTodo,
   getAllUSerTodo,
+  deletAllTodo,
 };

@@ -7,6 +7,7 @@ router.post("/",todoController.postOneTodo);
 router.delete("/:id",todoController.deleteTodo);
 router.put("/:id",todoController.updateTodo);
 router.get("/:userId",todoController.getAllUSerTodo);
+router.delete("/",todoController.deletAllTodo);
 
 
 
