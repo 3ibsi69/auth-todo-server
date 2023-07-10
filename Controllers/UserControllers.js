@@ -14,6 +14,7 @@ const signup = async (req, res) => {
         email: req.body.email,
         username: req.body.username,
         password: hash,
+        role: req.body.role,
       };
       var createdUser = await User.create(user);
       var token = jwt.sign({ id: createdUser._id }, "c21");
@@ -60,9 +61,21 @@ const verify = async (req, res) => {
     res.send("invalid token 3");
   }
 };
+const deleteAlluser = async (req, res) => {
+  await User.deleteMany();
+  res.send({ msg: "deleted all" });
+};
+
+const changeRole = async (req, res) => {
+  await User.updateOne({ _id: req.params.id }, { role: "user" });
+  res.send({ msg: "updated" });
+};
+
 
 module.exports = {
   signup,
   login,
   verify,
+  deleteAlluser,
+  changeRole,
 };
