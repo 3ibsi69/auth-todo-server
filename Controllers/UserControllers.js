@@ -1,6 +1,7 @@
 var User = require("../Modules/User");
 const bcrypt = require("bcrypt");
 var jwt = require("jsonwebtoken");
+var authpage = require("../Middlewares/authpage");
 
 const signup = async (req, res) => {
   var checkUser = await User.findOne({ email: req.body.email });
@@ -61,21 +62,10 @@ const verify = async (req, res) => {
     res.send("invalid token 3");
   }
 };
-const deleteAlluser = async (req, res) => {
-  await User.deleteMany();
-  res.send({ msg: "deleted all" });
-};
-
-const changeRole = async (req, res) => {
-  await User.updateOne({ _id: req.params.id }, { role: "user" });
-  res.send({ msg: "updated" });
-};
 
 
 module.exports = {
   signup,
   login,
   verify,
-  deleteAlluser,
-  changeRole,
 };

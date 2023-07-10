@@ -6,6 +6,7 @@ app.use(express.json());
 
 const todoRouter=require("./Routers/TodoRouter");
 const userRouter=require("./Routers/UserRouter");
+const AdminRouter=require("./Routers/AdminRouter");
 
 app.use(
     cors({
@@ -15,6 +16,7 @@ app.use(
 
 app.use("/todo",todoRouter)
 app.use("/user",userRouter)
+app.use("/admin",AdminRouter)
 
 
 
