@@ -3,7 +3,8 @@ const AdminController = require('../Controllers/AdminController');
 const authpage = require('../Middlewares/authpage');
 
 router.put('/changeRole/:id', authpage('admin'), AdminController.changeRole);
-router.get('/getalluser/:id', authpage('admin'), AdminController.getalluser);
+router.get('/getalluser/:id',authpage('admin') , AdminController.getalluser);
+router.delete('/deleteUser/:id', authpage('admin'), AdminController.deleteUser);
 router.delete('/deleteAlluser', authpage('admin'), AdminController.deleteAlluser);
 
 module.exports = router;

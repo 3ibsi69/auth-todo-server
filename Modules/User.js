@@ -6,7 +6,7 @@ const User=mongoose.model("User",{
     password: String,
     role:{
         type:String,
-        default:"admin",
+        default:"user",
         enum:["admin", "user"]
     }
 
