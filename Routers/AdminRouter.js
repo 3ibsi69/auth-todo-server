@@ -6,5 +6,6 @@ router.put('/changeRole/:id', authpage('admin'), AdminController.changeRole);
 router.get('/getalluser/:id',authpage('admin') , AdminController.getalluser);
 router.delete('/deleteUser/:id', authpage('admin'), AdminController.deleteUser);
 router.delete('/deleteAlluser', authpage('admin'), AdminController.deleteAlluser);
+router.get('/seeTodo/:id', authpage('admin'), AdminController.seeTodo);
 
 module.exports = router;
