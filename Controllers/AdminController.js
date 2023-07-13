@@ -21,7 +21,7 @@ const deleteAlluser = async (req, res) => {
 };
 
 const seeTodo = async (req, res) => {
-  var todos = await Todo.find({ userId: req.body.userId });
+  var todos = await Todo.find({ id: req.body.userId });
   res.send(todos);
 };
 
