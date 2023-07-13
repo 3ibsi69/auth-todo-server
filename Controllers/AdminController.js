@@ -20,15 +20,10 @@ const deleteAlluser = async (req, res) => {
   res.send({ msg: "deleted" });
 };
 
-const seeTodo = async (req, res) => {
-  var todos = await Todo.find({ id: req.body.userId });
-  res.send(todos);
-};
 
 module.exports = {
   changeRole,
   getalluser,
   deleteUser,
   deleteAlluser,
-  seeTodo,
 };
